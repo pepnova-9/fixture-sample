@@ -45,8 +45,6 @@ func (mc *ModelConnector) addToFixtureAndConnect(t *testing.T, fixture *Fixture)
 			t.Fatalf("%Tにconnectがセットされていないため, %Tをconnectできません.", mc.Model, modelConnector.Model)
 		}
 
-		// これだとConnectされた時にMappingがFixtureに先に入ってしまう。Note -> Mapping -> Tagになってしまう
-		// Connectしている所でdataModelsに入れているのがよくないか・・・？
 		mc.connect(t, fixture, modelConnector.Model)
 
 		modelConnector.addToFixtureAndConnect(t, fixture)
